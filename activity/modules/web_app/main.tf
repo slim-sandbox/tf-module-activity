@@ -6,7 +6,7 @@ resource "aws_instance" "web_app" {
   count = var.instance_count
 
   ami                    = "ami-04c913012f8977029"
-  instance_type          = "t2.micro"
+  instance_type          = var.instance_type
   subnet_id              = local.selected_subnet_ids[count.index % length(local.selected_subnet_ids)]
   vpc_security_group_ids = [aws_security_group.web_app.id]
   user_data = templatefile("${path.module}/init-script.sh", {
