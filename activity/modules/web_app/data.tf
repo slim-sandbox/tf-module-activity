@@ -25,9 +25,19 @@ data "aws_subnets" "private" {
 }
 
 data "aws_lb_listener" "this" {
-  arn = var.alb_listener_arn
+  count = var.alb_listener_arn != "" ? 1 : 0
+  arn   = var.alb_listener_arn
 }
 
 data "aws_lb" "this" {
-  arn = data.aws_lb_listener.this.load_balancer_arn
+  count = var.alb_listener_arn != "" ? 1 : 0
+  arn   = data.aws_lb_listener.this[0].load_balancer_arn
 }
+
+# # enhancements
+# data "subnet" "selected" {
+#   filter {
+#     name = "tag:Name"
+#     values = var.public_subnet ? ["*-public-*"] : ["*-private-*"]
+#   }
+# }
