@@ -1,5 +1,5 @@
 # Codebase for Developing Webapp Modules
-Activity document (here)[https://docs.google.com/document/d/1Bv6_4PnGhv68a3R18XlqV0scaheeQ71PC1giZko72YY/edit?tab=t.0]
+Activity document [here](https://docs.google.com/document/d/1Bv6_4PnGhv68a3R18XlqV0scaheeQ71PC1giZko72YY/edit?tab=t.0)
 
 # Prerequisites Setup
 - `./preequisites` directory contain the shared resources (i.e VPC and Balancer)
